@@ -30,7 +30,7 @@ html, body {
   height: 100px;
   background-color: transparent;
   border: none;
-  border: 1px solid black;
+  border: 2px solid rgb(71, 71, 71);
   perspective: var(--perspective);
   cursor: pointer;
 }
@@ -86,28 +86,28 @@ html, body {
 @keyframes animeCube {
   0% {
     transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
-    transition-timing-function: ease-out;
+    transition-timing-function: ease-in;
   }
   80% {
     transform: translateX(-50%) translateY(-64%) translateZ(0) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
+    transition-timing-function: ease-out;
   }
   100% {
     transform: translateX(-50%) translateY(-60%) translateZ(0) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
-    transition-timing-function: ease-in;
   }
 }
 @keyframes animeCubeOut {
   0% {
     
     transform: translateX(-50%) translateY(-60%) translateZ(0) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
-    transition-timing-function: ease-in;
+    transition-timing-function: ease-out;
   }
   20% {
     transform: translateX(-50%) translateY(-64%) translateZ(0) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
   }
   100% {
+    transition-timing-function: ease-in;
     transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
-    transition-timing-function: ease-out;
   }
 }
 
