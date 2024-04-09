@@ -1,0 +1,121 @@
+:root {
+  --perspective: 4000px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dddcdc;
+}
+.containerBtn {
+  width: 350px;
+  height: 150px;
+  perspective: var(--perspective);
+  position: relative;
+}
+.btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
+  transform-style: preserve-3d;
+  width: 200px;
+  height: 100px;
+  background-color: transparent;
+  border: none;
+  border: 1px solid black;
+  perspective: var(--perspective);
+  cursor: pointer;
+}
+.cube {
+  position: absolute;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
+  transform-style: preserve-3d;
+  width: 200px;
+  height: 100px;
+  perspective: var(--perspective);
+}
+.face {
+  transform-style: preserve-3d;
+  position: absolute;
+  background-color: #fff;
+  transform-origin: 0% 0%;
+  overflow: hidden;
+  display: flex;
+  opacity: 0.5;
+}
+.left, .right {
+  width: 100px;
+  height: 0;
+}
+.left {
+  left: 0;
+  transform: translateX(0%) translateY(0%) rotateY(90deg) rotateZ(90deg);
+}
+.right {
+  left: 100%;
+  transform: translateX(0%) translateY(0%) rotateY(90deg) rotateZ(90deg) rotateX(0deg);
+}
+.top, .bottom {
+  width: 200px;
+  height: 0;
+}
+.top {
+  transform: rotateX(90deg) translateX(0%) translateY(0%);
+}
+.bottom {
+  top: 100%;
+  transform: translateX(0%) translateY(0%) rotateX(90deg) rotateY(0deg);
+}
+.animationCubeIn {
+  animation: animeCube 0.4s forwards;
+}
+.animationCubeOut {
+  animation: animeCubeOut 0.4s forwards;
+}
+@keyframes animeCube {
+  0% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
+    transition-timing-function: ease-out;
+  }
+  80% {
+    transform: translateX(-50%) translateY(-64%) translateZ(0) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-60%) translateZ(0) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
+    transition-timing-function: ease-in;
+  }
+}
+@keyframes animeCubeOut {
+  0% {
+    
+    transform: translateX(-50%) translateY(-60%) translateZ(0) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
+    transition-timing-function: ease-in;
+  }
+  20% {
+    transform: translateX(-50%) translateY(-64%) translateZ(0) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(65deg) rotateY(0deg) rotateZ(35deg);
+    transition-timing-function: ease-out;
+  }
+}
+
+.insideFace {
+  height: 50px;
+  width: 20px;
+  background-color: purple;
+  position: absolute;
+  translate: 0 -15px;
+  rotate: 30deg;
+}
