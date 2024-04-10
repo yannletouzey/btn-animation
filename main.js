@@ -4,6 +4,7 @@ const left = document.querySelector('.left');
 const right = document.querySelector('.right');
 const top = document.querySelector('.top');
 const bottom = document.querySelector('.bottom');
+const text = document.querySelector('.text');
 const nbrDiv = 7;
 
 for (let i = 0; i < nbrDiv; i++) {
@@ -57,6 +58,7 @@ animeAll(boxsRight);
 
 btn.addEventListener('mouseenter', () => {
   cube.className = 'cube animationCubeIn';
+  text.style.transform = `rotateX(-90deg) translateY(-80px) scaleY(1)`;
   setTimeout(() => {
     left.style.transitionDuration = '0.2s';
     left.style.height = '20px';
@@ -79,6 +81,7 @@ btn.addEventListener('mouseenter', () => {
 btn.addEventListener('mouseleave', () => {
   cube.className = 'cube animationCubeOut';
   setTimeout(() => {    
+    text.style.transform = `rotateX(-90deg) translateY(0) scaleY(0)`;
     left.style.height = '0';
     left.style.borderTop = 'none';
     left.style.borderBottom = 'none';
